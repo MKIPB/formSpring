@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${titulo}"></title>
+</head>
+<body>
+    <h1 th:text="${titulo}"></h1>
+    <h2>Iteración: <span th:text="${iteraciones}"></span></h2>
+
+    <form method="post" action="/formulario/recibe-parametros">
+        <label>Usuario:</label>
+        <input type="text" name="usuario" th:value="${usuario}">
+
+        <label>Clave:</label>
+        <input type="password" name="clave" th:value="${clave}">
+
+        <label>Género:</label>
+        <input type="radio" name="genero_seleccionado" value="F"> Femenino
+        <input type="radio" name="genero_seleccionado" value="M"> Masculino
+        <input type="radio" name="genero_seleccionado" value="O"> Otro
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Restablecer">
+    </form>
+</body>
+</html>

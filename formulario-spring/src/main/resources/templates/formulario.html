@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="/css/estilos.css">
+</head>
+<body>
+    <h1 th:text="'Formulario ' + ${titulo}"></h1>
+    <p th:text="'Iteración: ' + ${iteraciones}"></p>
+
+    <form action="/formulario/recibe-parametros" method="post">
+        <div th:each="genero : ${coleccionGeneros}">
+            <input type="radio" name="generoSeleccionado" th:value="${genero}" />
+            <span th:text="${genero}"></span>
+        </div>
+
+        <label>Usuario: <input type="text" name="usuario" th:value="${usuario}" /></label><br>
+        <input type="hidden" name="iteraciones" th:value="${iteraciones}" />
+        <input type="image" name="imagen" src="/img/logo.png" alt="Enviar con imagen">
+    </form>
+
+    <p th:if="${imagenX != null && imagenY != null}">
+        Imagen.x: <span th:text="${imagenX}"></span>, Imagen.y: <span th:text="${imagenY}"></span>
+    </p>
+</body>
+</html>
